@@ -17,11 +17,11 @@ class Form{
         this.title.position(displayWidth/2-350, 50);
         this.title.style('font-size', '70px');
         this.title.style('color', 'skyblue');
-        this.input.position(780,400);
+        this.input.position(580,400);
         this.input.style('width', '200px');
         this.input.style('height', '20px');
         this.input.style('background', 'lavender');
-        this.button.position(780,500);
+        this.button.position(580,500);
         this.button.style('width', '200px');
         this.button.style('height', '50px');
         this.button.style('background', 'lightpink');
