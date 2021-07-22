@@ -60,7 +60,7 @@ class Game{
 
                 Player.getPlayerInfo();
                 Player.playerScore();
-                 image(back_img, 0, 0, displayWidth, displayHeight-150);
+                 image(back_img, 0, 0, displayWidth, displayHeight);
                  var x =500;
                  var y=displayHeight;
                  var index =0;
