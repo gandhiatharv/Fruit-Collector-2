@@ -26,11 +26,12 @@ class Game{
                 form = new Form()
                 form.display();
             }
-    player1 = createSprite(200,500);
+    player1 = createSprite(0,displayHeight);
     player1.addImage("player1",player_img);
     
-    player2 = createSprite(800,500);
+    player2 = createSprite(1000,displayHeight);
     player2.addImage("player2", player_img);
+
     players=[player1,player2];
 
         }
@@ -40,52 +41,100 @@ class Game{
                 form.hide();
                 form.showReset();
 
+                if(player1.x < 80){
+                    player1.x = 80;
+                }
+
+                if(player2.x < 80){
+                    player2.x = 80;
+                }
+
+                if(player1.x > displayWidth-100){
+                    player1.x = displayWidth-100;
+                }
+
+                if(player2.x > displayWidth-100){
+                    player2.x = displayWidth-100;
+                }
+
+
                 Player.getPlayerInfo();
                 Player.playerScore();
-                 image(back_img, 0, 0, displayWidth, displayHeight);
-                 var x =100;
-                 var y=200;
+                 image(back_img, 0, 0, displayWidth, displayHeight-150);
+                 var x =500;
+                 var y=displayHeight;
                  var index =0;
                  drawSprites();
                  for(var plr in allPlayers){
                     
                     
                      index = index+1;
-                     x = 500-allPlayers[plr].distance;
-                     y=500;
+                     x = 900-allPlayers[plr].distance;
+                     y=displayHeight-220;
                      
                      players[index -1].x = x;
                      players[index - 1].y = y;
                        
                      if(index === player.index){
                          
-                        fill("blue"); 
+                        textSize(20);
+                        fill("white");
+                        strokeWeight(2);
+                        stroke("blue");
                         text(allPlayers[plr].name, x-25, y+25);
 
 
                          
                      }
                     
-                      
-                     text(allPlayers.player1.name + "'s Score:"+allPlayers.player1.score,50,50);
-                     text(allPlayers.player2.name + "'s Score:" + allPlayers.player2.score, 50, 100);
+                     textSize(20);
+                     fill("white");
+                     strokeWeight(2);
+                     stroke("orange");
+                     text(allPlayers.player1.name + "'s Score: "+allPlayers.player1.score,50,50);
+                     text(allPlayers.player2.name + "'s Score: " + allPlayers.player2.score, 50, 100);
+                     textSize(30);
+                      text("The first player to get 35 points wins.", displayWidth/2-260, 60);
+
+                      if(a === 0){
+                        if(allPlayers.player1.score >= 35){
+                            gameState = 2;
+                            endsound.play();
+                            player.rank += 1;
+                            console.log(player.rank);
+                            swal({ title: `Player 1 Wins!`, text: "Great effort!", imageUrl: "https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/cup.png", imageSize: "100x100", confirmButtonText: "Ok", });
+                        }
+                    }
+        
+                        if(a === 0){
+                        if(allPlayers.player2.score >= 35){
+                            gameState = 2;
+                            endsound.play();
+                            player.rank += 1;
+                            console.log(player.rank);
+                            swal({ title: `Player 2 Wins!`, text: "Great effort!", imageUrl: "https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/cup.png", imageSize: "100x100", confirmButtonText: "Ok", });
+                        }
+                    }
                  }
                 
                 
                  
 
                 if (keyIsDown(RIGHT_ARROW) && player.index !== null) {
-                    player.distance -= 10
+                    player.distance -= 25
                     player.update();
                 }
                 if (keyIsDown(LEFT_ARROW) && player.index !== null) {
-                    player.distance += 10
+                    player.distance += 25
                     player.update();
                 }
+
             
-                 if (frameCount % 20 === 0) {
-                     fruits = createSprite(random(0, displayWidth), 0, 100, 100);
-                     fruits.velocityY = 6;
+
+                 if (frameCount % 60 === 0) {
+                     fruits = createSprite(random(100, 1800), 0, 100, 100);
+                     fruits.velocityY = (11+4*player.score/10);
+                     fruits.lifetime = 1000;
                      var rand = Math.round(random(1,5));
                      switch(rand){
                          case 1: fruits.addImage("fruit1",fruit1_img);
@@ -102,19 +151,58 @@ class Game{
                      fruitGroup.add(fruits);
                      
                  }
+
+            
+
+
+
+                                  if (frameCount % 140 === 0) {
+                     bomb = createSprite(random(100, 1800), 0, 100, 100);
+                     bomb.velocityY = (11+4*player.score/10);
+                     bomb.lifetime = 1000;
+                     bomb.addImage(bombimg);
+                     bomb.scale = 0.3;
+                     bombGroup.add(bomb);
+                     
+                 }
                  
                   if (player.index !== null) {
 
                     
 
                     for (var i = 0; i < fruitGroup.length; i++) {
+
+                        if (fruitGroup.get(i).y > displayHeight-150) {
+                            fruitGroup.get(i).destroy();
+                            player.score = player.score - 1;
+                            losepoint.play();
+                        }
                         if (fruitGroup.get(i).isTouching(players)) {
                             fruitGroup.get(i).destroy();
                             player.score = player.score + 1;
-                            
+                            gainpoint.play();
                         }
+
+
                         
                     }
+
+                    for (var z = 0; z < bombGroup.length; z++) {
+
+                        if (bombGroup.get(z).isTouching(players)) {
+                            bombGroup.get(z).destroy();
+                            player.score = player.score - 5;
+                            bombhit.play();
+                        }
+
+
+                        
+                    }
+
+                    if(player.score < 0){
+                        player.score = 0;
+                    }
+
                   }
                 
 
