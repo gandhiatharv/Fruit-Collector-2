@@ -26,10 +26,10 @@ class Game{
                 form = new Form()
                 form.display();
             }
-    player1 = createSprite(0,displayHeight);
+    player1 = createSprite(0,displayHeight + 80);
     player1.addImage("player1",player_img);
     
-    player2 = createSprite(1000,displayHeight);
+    player2 = createSprite(1000,displayHeight +80);
     player2.addImage("player2", player_img);
 
     players=[player1,player2];
@@ -60,7 +60,7 @@ class Game{
 
                 Player.getPlayerInfo();
                 Player.playerScore();
-                 image(back_img, 0, 0, displayWidth, displayHeight);
+                 image(back_img, 0, 0, displayWidth, displayHeight-50);
                  var x =500;
                  var y=displayHeight;
                  var index =0;
@@ -69,8 +69,8 @@ class Game{
                     
                     
                      index = index+1;
-                     x = 900-allPlayers[plr].distance;
-                     y=displayHeight-220;
+                     x = displayWidth/2-allPlayers[plr].distance;
+                     y=displayHeight-150;
                      
                      players[index -1].x = x;
                      players[index - 1].y = y;
@@ -132,9 +132,8 @@ class Game{
             
 
                  if (frameCount % 60 === 0) {
-                     fruits = createSprite(random(100, 1800), 0, 100, 100);
+                     fruits = createSprite(random(100, displayWidth-75), 0, 100, 100);
                      fruits.velocityY = (11+4*player.score/10);
-                     fruits.lifetime = 1000;
                      var rand = Math.round(random(1,5));
                      switch(rand){
                          case 1: fruits.addImage("fruit1",fruit1_img);
@@ -157,7 +156,7 @@ class Game{
 
 
                                   if (frameCount % 140 === 0) {
-                     bomb = createSprite(random(100, 1800), 0, 100, 100);
+                     bomb = createSprite(random(100, displayWidth-75), 0, 100, 100);
                      bomb.velocityY = (11+4*player.score/10);
                      bomb.lifetime = 1000;
                      bomb.addImage(bombimg);
@@ -172,18 +171,22 @@ class Game{
 
                     for (var i = 0; i < fruitGroup.length; i++) {
 
-                        if (fruitGroup.get(i).y > displayHeight-150) {
-                            fruitGroup.get(i).destroy();
-                            player.score = player.score - 1;
-                            losepoint.play();
-                        }
                         if (fruitGroup.get(i).isTouching(players)) {
                             fruitGroup.get(i).destroy();
                             player.score = player.score + 1;
                             gainpoint.play();
                         }
+                        
+                    }
 
 
+                    for (var s = 0; s < fruitGroup.length; s++) {
+
+                        if (fruitGroup.get(s).y > displayHeight-80) {
+                            fruitGroup.get(s).destroy();
+                            player.score = player.score - 1;
+                            losepoint.play();
+                        }
                         
                     }
 
