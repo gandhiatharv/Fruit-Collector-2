@@ -16,7 +16,7 @@ class Form{
     }
     display() {
         this.title.html("FRUIT CATCHER RACE");
-        this.title.position(displayWidth/5, -50);
+        this.title.position(displayWidth/5-15, -50);
         this.title.style('font-size', '80px');
         this.title.style('color', 'skyblue');
         this.input.position(780,400);
