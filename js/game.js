@@ -99,6 +99,7 @@ class Game{
                       if(a === 0){
                         if(allPlayers.player1.score >= 30){
                             gameState = 2;
+                            playsound.stop();
                             endsound.play();
                             player.rank += 1;
                             console.log(player.rank);
@@ -109,6 +110,7 @@ class Game{
                         if(a === 0){
                         if(allPlayers.player2.score >= 30){
                             gameState = 2;
+                            playsound.stop();
                             endsound.play();
                             player.rank += 1;
                             console.log(player.rank);
