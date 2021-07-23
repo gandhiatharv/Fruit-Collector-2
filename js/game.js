@@ -103,7 +103,7 @@ class Game{
                             endsound.play();
                             player.rank += 1;
                             console.log(player.rank);
-                            swal({ title: `Player 1 Wins!`, text: "Great effort!", imageUrl: "https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/cup.png", imageSize: "100x100", confirmButtonText: "Ok", });
+                            swal({ title: allPlayers.player1.name +' Wins!`, text: "Great effort!", imageUrl: "https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/cup.png", imageSize: "100x100", confirmButtonText: "Ok", });
                         }
                     }
         
@@ -114,7 +114,7 @@ class Game{
                             endsound.play();
                             player.rank += 1;
                             console.log(player.rank);
-                            swal({ title: `Player 2 Wins!`, text: "Great effort!", imageUrl: "https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/cup.png", imageSize: "100x100", confirmButtonText: "Ok", });
+                            swal({ title: allPlayers.player2.name +' Wins!`, text: "Great effort!", imageUrl: "https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/cup.png", imageSize: "100x100", confirmButtonText: "Ok", });
                         }
                     }
                  }
