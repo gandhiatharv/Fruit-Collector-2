@@ -4,6 +4,7 @@ var gameState =0;
 var playerCount = 0;
 var carsAtEnd = 0;
 var a = 0;
+var tries = 2;
 var allPlayers;
 
 var player, form,game;
@@ -13,7 +14,7 @@ var fruits, bomb;
 var fruitGroup, bombGroup;
 var fruit1_img, fruit2_img, fruit3_img, fruit4_img, fruit5_img, bombimg;
 var player_img;
-var bombhit, endsound, gainpoint, losepoint;
+var bombhit, endsound, gainpoint, losepoint, playsound;
 
 function preload(){
   back_img = loadImage("images/jungle.jpg");
@@ -28,6 +29,7 @@ function preload(){
   losepoint = loadSound("losepoint.wav");
   bombhit = loadSound("bombhit.mp3");
   endsound = loadSound("endsound.mp3");
+  playsound = loadSound("playsound.mp3");
 }
 function setup() {
   createCanvas(displayWidth, displayHeight);
@@ -49,6 +51,12 @@ function draw() {
      clear(); 
      game.play();
    }
+  
+  if(tries === 2 && gameState === 1){
+    endsound.stop();
+  playsound.play();
+    tries = tries - 1;
+  }
    if (gameState === 2) {
     
      game.end();
