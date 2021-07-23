@@ -94,10 +94,10 @@ class Game{
                      text(allPlayers.player1.name + "'s Score: "+allPlayers.player1.score,50,50);
                      text(allPlayers.player2.name + "'s Score: " + allPlayers.player2.score, 50, 100);
                      textSize(30);
-                      text("The first player to get 35 points wins.", displayWidth/2-260, 60);
+                      text("The first player to get 30 points wins.", displayWidth/2-260, 60);
 
                       if(a === 0){
-                        if(allPlayers.player1.score >= 35){
+                        if(allPlayers.player1.score >= 30){
                             gameState = 2;
                             endsound.play();
                             player.rank += 1;
@@ -107,7 +107,7 @@ class Game{
                     }
         
                         if(a === 0){
-                        if(allPlayers.player2.score >= 35){
+                        if(allPlayers.player2.score >= 30){
                             gameState = 2;
                             endsound.play();
                             player.rank += 1;
