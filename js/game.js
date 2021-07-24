@@ -94,27 +94,29 @@ class Game{
                      text(allPlayers.player1.name + "'s Score: "+allPlayers.player1.score,50,50);
                      text(allPlayers.player2.name + "'s Score: " + allPlayers.player2.score, 50, 100);
                      textSize(30);
-                      text("The first player to get 30 points wins.", displayWidth/2-260, 60);
+                      text("The first player to get 20 points wins.", displayWidth/2-260, 60);
 
                       if(a === 0){
-                        if(allPlayers.player1.score >= 30){
+                        if(allPlayers.player1.score >= 20){
                             gameState = 2;
                             playsound.stop();
                             endsound.play();
                             player.rank += 1;
                             console.log(player.rank);
-                            swal({ title: 'Player 1 Wins!`, text: "Great effort!", imageUrl: "https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/cup.png", imageSize: "100x100", confirmButtonText: "Ok", });
-                        }
+                            swal({ title: allPlayers.player1.name + ` Wins!`, text: "Great effort!", imageUrl: "https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/cup.png", imageSize: "100x100", confirmButtonText: "Ok", });
+                        
+                      
                     }
-        
+                    }
+                
                         if(a === 0){
-                        if(allPlayers.player2.score >= 30){
+                        if(allPlayers.player2.score >= 20){
                             gameState = 2;
                             playsound.stop();
                             endsound.play();
                             player.rank += 1;
                             console.log(player.rank);
-                            swal({ title: 'Player 2 Wins!`, text: "Great effort!", imageUrl: "https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/cup.png", imageSize: "100x100", confirmButtonText: "Ok", });
+                            swal({ title: allPlayers.player2.name+` Wins!`, text: "Great effort!", imageUrl: "https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/cup.png", imageSize: "100x100", confirmButtonText: "Ok", });
                         }
                     }
                  }
