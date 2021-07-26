@@ -175,9 +175,14 @@ class Game{
 
                     for (var i = 0; i < fruitGroup.length; i++) {
 
-                        if (fruitGroup.get(i).isTouching(players)) {
+                        if (fruitGroup.get(i).isTouching(player1)) {
                             fruitGroup.get(i).destroy();
-                            player.score = player.score + 1;
+                            allPlayers.player1.score = allPLayers.player1.score + 1;
+                            gainpoint.play();
+                        }
+                        if (fruitGroup.get(i).isTouching(player2)) {
+                            fruitGroup.get(i).destroy();
+                            allPlayers.player2.score = allPLayers.player2.score + 1;
                             gainpoint.play();
                         }
                         
@@ -202,7 +207,11 @@ class Game{
                             bombhit.play();
                         }
 
-
+                        if (bombGroup.get(i).isTouching(player1)) {
+                            fruitGroup.get(i).destroy();
+                            allPlayers.player1.score = allPLayers.player.score + 1;
+                            gainpoint.play();
+                        }
                         
                     }
 
