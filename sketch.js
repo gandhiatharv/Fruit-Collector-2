@@ -7,7 +7,7 @@ var a = 0;
 var tries = 2;
 var allPlayers;
 
-var player, form,game;
+var player, form, game;
 var player1,player2;
 var players;
 var fruits, bomb;
