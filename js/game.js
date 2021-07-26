@@ -61,7 +61,7 @@ class Game{
                 Player.getPlayerInfo();
                 Player.playerScore();
                  image(back_img, 0, 0, displayWidth, displayHeight-50);
-                 var x =500;
+                 var x =displayWidth/2;
                  var y=displayHeight;
                  var index =0;
                  drawSprites();
@@ -81,7 +81,7 @@ class Game{
                         fill("white");
                         strokeWeight(2);
                         stroke("blue");
-                        text(allPlayers[plr].name, x-25, y+25);
+                        text(allPlayers[plr].name, x-60, y+25);
 
 
                          
@@ -91,10 +91,10 @@ class Game{
                      fill("white");
                      strokeWeight(2);
                      stroke("orange");
-                     text(allPlayers.player1.name + "'s Score: "+allPlayers.player1.score,50,50);
-                     text(allPlayers.player2.name + "'s Score: " + allPlayers.player2.score, 50, 100);
+                     text(allPlayers.player1.name + "'s Score: "+allPlayers.player1.score,displayWidth/22,displayHeight/20);
+                     text(allPlayers.player2.name + "'s Score: " + allPlayers.player2.score, displayWidth/22,displayHeight/12);
                      textSize(30);
-                      text("The first player to get 20 points wins.", displayWidth/2-260, 60);
+                      text("The first player to get 20 points wins.", displayWidth/3, displayHeight/20);
 
                       if(a === 0){
                         if(allPlayers.player1.score >= 20){
