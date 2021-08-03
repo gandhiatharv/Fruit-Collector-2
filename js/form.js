@@ -1,7 +1,7 @@
 class Form{
     constructor(){
  this.input = createInput("").attribute("placeholder", "Nickname");
-       this.button = createButton('Play');
+       this.button = createButton('Begin Fruit Catching');
        this.greeting = createElement('h2');
        this.greeting2 = createElement('h2');
        this.title = createElement('h2');
