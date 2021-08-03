@@ -94,10 +94,10 @@ class Game{
                      text(allPlayers.player1.name + "'s Score: "+allPlayers.player1.score,displayWidth/22,displayHeight/20);
                      text(allPlayers.player2.name + "'s Score: " + allPlayers.player2.score, displayWidth/22,displayHeight/12);
                      textSize(30);
-                      text("The first player to get 20 points wins.", displayWidth/3, displayHeight/20);
+                      text("The first player to get 15 points wins.", displayWidth/3, displayHeight/20);
 
                       if(a === 0){
-                        if(allPlayers.player1.score >= 20){
+                        if(allPlayers.player1.score >= 15){
                             gameState = 2;
                             playsound.stop();
                             endsound.play();
@@ -110,7 +110,7 @@ class Game{
                     }
                 
                         if(a === 0){
-                        if(allPlayers.player2.score >= 20){
+                        if(allPlayers.player2.score >= 15){
                             gameState = 2;
                             playsound.stop();
                             endsound.play();
@@ -177,7 +177,7 @@ class Game{
 
                         if (fruitGroup.get(i).isTouching(players)) {
                             fruitGroup.get(i).destroy();
-                            player.score = player.score + 1;
+                            player.score = player.score + Math.round(random(1, 2));
                             gainpoint.play();
                         }
                         
