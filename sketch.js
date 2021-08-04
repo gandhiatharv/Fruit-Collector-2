@@ -43,9 +43,6 @@ function setup() {
 
 function draw() {
   background(back_img);
-    if (!playsound.isPlaying()&&gameState === 1) {
-    playsound.play();
-  }
    if (playerCount === 2) {
      game.update(1);
    }
