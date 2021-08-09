@@ -100,6 +100,7 @@ class Game{
                         if(allPlayers.player1.score >= 15){
                             gameState = 2;
                             playsound.stop();
+                            lobbysound.stop();
                             endsound.play();
                             player.rank += 1;
                             console.log(player.rank);
@@ -113,6 +114,7 @@ class Game{
                         if(allPlayers.player2.score >= 15){
                             gameState = 2;
                             playsound.stop();
+                                                        lobbysound.stop();
                             endsound.play();
                             player.rank += 1;
                             console.log(player.rank);
