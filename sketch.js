@@ -31,7 +31,7 @@ function preload(){
   bombhit = loadSound("bombhit.mp3");
   endsound = loadSound("endsound.mp3");
   playsound = loadSound("playsound.mp3");
-  lobbysound = loadSound("lobbysound.mp3);
+  lobbysound = loadSound("lobbysound.mp3");
 }
 function setup() {
   createCanvas(displayWidth, displayHeight);
