@@ -104,7 +104,7 @@ class Game{
                             endsound.play();
                             player.rank += 1;
                             console.log(player.rank);
-                            swal({ title: allPlayers.player1.name + ` Wins!`, text: "Great effort!", imageUrl: "https://raw.githubusercontent.com/gandhiatharv/Fruit-Collector-2/main/images/cup.png", imageSize: "100x100", confirmButtonText: "Ok", });
+                            swal({ title: allPlayers.player1.name + ` Wins!`, text: "Great effort!", imageUrl: "https://raw.githubusercontent.com/gandhiatharv/Fruit-Collector-2/main/images/cup.png", imageSize: "150x150", confirmButtonText: "Ok", });
                         
                       
                     }
@@ -118,7 +118,7 @@ class Game{
                             endsound.play();
                             player.rank += 1;
                             console.log(player.rank);
-                            swal({ title: allPlayers.player2.name+` Wins!`, text: "Great effort!", imageUrl: "https://raw.githubusercontent.com/gandhiatharv/Fruit-Collector-2/main/images/cup.png", imageSize: "100x100", confirmButtonText: "Ok", });
+                            swal({ title: allPlayers.player2.name+` Wins!`, text: "Great effort!", imageUrl: "https://raw.githubusercontent.com/gandhiatharv/Fruit-Collector-2/main/images/cup.png", imageSize: "150x150", confirmButtonText: "Ok", });
                         }
                     }
                  }
