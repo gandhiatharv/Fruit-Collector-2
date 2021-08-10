@@ -41,20 +41,20 @@ class Game{
                 form.hide();
                 form.showReset();
 
-                if(player1.x < 80){
-                    player1.x = 80;
+                if(player1.x < displayWidth/25){
+                    player1.x = displayWidth/25;
                 }
 
-                if(player2.x < 80){
-                    player2.x = 80;
+                if(player2.x < displayWidth/25){
+                    player2.x = displayWidth/25;
                 }
 
-                if(player1.x > displayWidth-100){
-                    player1.x = displayWidth-100;
+                if(player1.x > displayWidth/1.04){
+                    player1.x = displayWidth/1.04;
                 }
 
-                if(player2.x > displayWidth-100){
-                    player2.x = displayWidth-100;
+                if(player2.x > displayWidth/1.04){
+                    player2.x = displayWidth/1.04;
                 }
 
 
@@ -104,6 +104,8 @@ class Game{
                             endsound.play();
                             player.rank += 1;
                             console.log(player.rank);
+                            Player.updateCarsAtEnd(player.rank);
+                            console.log(player.rank);
                             swal({ title: allPlayers.player1.name + ` Wins!`, text: "Great effort!", imageUrl: "https://raw.githubusercontent.com/gandhiatharv/Fruit-Collector-2/main/images/cup.png", imageSize: "150x150", confirmButtonText: "Ok", });
                         
                       
@@ -114,9 +116,11 @@ class Game{
                         if(allPlayers.player2.score >= 15){
                             gameState = 2;
                             playsound.stop();
-                                                        lobbysound.stop();
+                            lobbysound.stop();
                             endsound.play();
                             player.rank += 1;
+                            console.log(player.rank);
+                            Player.updateCarsAtEnd(player.rank);
                             console.log(player.rank);
                             swal({ title: allPlayers.player2.name+` Wins!`, text: "Great effort!", imageUrl: "https://raw.githubusercontent.com/gandhiatharv/Fruit-Collector-2/main/images/cup.png", imageSize: "150x150", confirmButtonText: "Ok", });
                         }

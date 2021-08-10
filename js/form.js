@@ -6,6 +6,7 @@ class Form{
        this.greeting2 = createElement('h2');
        this.title = createElement('h2');
        this.reset = createButton('Reset');
+       this.leave = createButton('Leave');
     }
     hide() {
         this.greeting.hide();
@@ -28,10 +29,17 @@ class Form{
         this.button.style('height', '50px');
         this.button.style('background', 'lightpink');
         this.reset.hide();
+        this.leave.show();
+        this.leave.position(displayWidth/1.12,displayHeight/50);
+        this.leave.hide();
+        this.leave.style('width', '100px');
+        this.leave.style('height', '50px');
+        this.leave.style('background', 'lightpink');
 
         this.button.mousePressed(() => {
             this.input.hide();
             this.button.hide();
+            this.leave.show();
             player.name = this.input.value();
             playerCount += 1;
             player.index = playerCount;
@@ -56,10 +64,15 @@ class Form{
            location.reload();
         });
 
+        this.leave.mousePressed(() => {
+            player.updateCount(playerCount-1);
+            location.reload();
+         });
+
     }
 
     showReset(){
-        this.reset.position(displayWidth/1.12,displayHeight/50);
+        this.reset.position(displayWidth/20,displayHeight/50);
         this.reset.show();
         this.reset.style('width', '100px');
         this.reset.style('height', '50px');
