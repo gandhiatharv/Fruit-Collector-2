@@ -184,6 +184,7 @@ class Game{
                         if (fruitGroup.get(i).isTouching(players)) {
                             fruitGroup.get(i).destroy();
                             player.score = player.score + Math.round(random(1, 2));
+                                                player.update();
                             gainpoint.play();
                         }
                         
@@ -195,6 +196,7 @@ class Game{
                         if (fruitGroup.get(s).y > displayHeight-80) {
                             fruitGroup.get(s).destroy();
                             player.score = player.score - 1;
+                                                player.update();
                             losepoint.play();
                         }
                         
@@ -205,6 +207,7 @@ class Game{
                         if (bombGroup.get(z).isTouching(players)) {
                             bombGroup.get(z).destroy();
                             player.score = player.score - 5;
+                                                player.update();
                             bombhit.play();
                         }
                         
