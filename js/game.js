@@ -94,7 +94,7 @@ class Game{
                      text(allPlayers.player1.name + "'s Score: "+allPlayers.player1.score,displayWidth/22,displayHeight/20);
                      text(allPlayers.player2.name + "'s Score: " + allPlayers.player2.score, displayWidth/22,displayHeight/12);
                      textSize(30);
-                      text("The first player to get 15 points wins.", displayWidth/3, displayHeight/20);
+                      text("Winning Score: 15 Points", displayWidth/2.55, displayHeight/20);
 
                       if(a === 0){
                         if(allPlayers.player1.score >= 15){
